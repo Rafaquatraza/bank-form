@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Bank Account open Form</title>
+</head>
+<body style="font-family: Arial, sans-serif; background-color:white;" >
+    <header class="site-header">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Union_Bank_of_India_Logo.svg/1280px-Union_Bank_of_India_Logo.svg.png?utm_source=commons.wikimedia.org&amp;utm_campaign=index&amp;utm_content=thumbnail" alt="Union Bank Logo"
+         class="header-logo">
+</header>
+    <br><br/>
+    <h2 style="text-align: center;">Account Open Form</h2>
+    <form class="form" action="/submit" method="post" style="border: 2px solid ; margin: 20px; padding: 20px;">
+        <label for="name" >Name:</label>
+        <input type="text" id="name" name="name" placeholder="Enter your name"required><br><br>
+        <label for="Branch">Branch:</label>
+        <input type="text" id="Branch" name="Branch"  placeholder="Enter your branch name" required><br><br>
+        <label for="account" >Account Type:</label>
+        <select id="account" name="account" placeholder="Enter your account type"required>
+            <option value="savings">Savings</option>
+            <option value="current">Current</option>
+            <option value="fixed">Fixed Deposit</option>            
+        </select><br><br>
+        <label for="email" >Email:</label>
+        <input type="email" placeholder="e.g. example@email.com" id="email" name="email"><br><br>
+        <label for="dob">DOB:</label>
+        <input type="date" id="dob" name="dob" required><br><br>
+        <label for="age" >Age:</label>
+        <input type="number" id="age" name="age" min="0" max="120" required><br><br>
+        <label for="gender" >Gender:</label>
+        <select id="gender" name="gender" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+        </select><br><br>
+        <label for="contact" >Contact N0:</label>
+        <input type="text" id="contact" name="contact" inputmode="numeric" pattern="[0-9]{10}" title="Enter a 10-digit contact number placeholder="Enter your contact number"" required><br><br>
+         <label for="aadhar"  >Aadhar N0:</label>
+        <input type="number" placeholder="Enter your contact number" id="aadhar" name="aadhar" inputmode="numeric" pattern="[0-9]{12}" title="Enter a 12-digit aadhar number" required><br><br>
+         <label for="pan" >Pan N0:</label>
+        <input type="text" id="pan" placeholder="Enter your pan number" name="pan" inputmode="numeric" pattern="[A-Z]{4}[0-9]{5}[A-Z]{1}" title="Enter a 10-digit pan number" required><br><br>
+        <label for="address" >HomeAddress:</label>
+        <textarea id="address" placeholder="Enter your Homeaddress" name="address" rows="4" cols="50"></textarea><br><br>
+        <label for="income" >Annual Income:</label>
+        <input type="number" id="income" placeholder="Enter your annual income" name="income" min="0"><br><br>
+        <label for="occupation" >Occupation:</label>
+        <input type="text" id="occupation" placeholder="Enter your occupation" name="occupation"><br><br>
+        <label for="education" >Education Qualification:</label>
+        <input type="text" placeholder="Enter your education qualification" id="education" name="education"><br><br>
+        <label for="nominee" >Nominee Name:</label>
+        <input type="text" placeholder="Enter your nominee name" id="nominee" name="nominee" required><br><br>
+        <input type="checkbox" id="subscribe" name="subscribe" placeholder="I agree with terms and conditions">
+        <label for="subscribe">I agree with terms and conditions</label><br><br>
+
+        <button type="submit" style="background-color: black; color: white; padding: 10px 20px; border: none; cursor: pointer;">Submit</button>  
+
+    </form>
+<script src="index.js"></script>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</html>
