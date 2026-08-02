@@ -17,10 +17,9 @@ const dbURI = process.env.MONGO_URI || "mongodb://127.0.0.1:27017/bankform";
 mongoose.connect(dbURI)
 .then(() => {
     console.log("MongoDB Connected");
-    console.log(process.env.MONGO_URI);
 })
 .catch((err) => {
-    console.log(err);
+    console.log("MongoDB Connection Error:", err.message);
 });
 
 const formSchema = new mongoose.Schema({
@@ -38,7 +37,8 @@ const formSchema = new mongoose.Schema({
     income: Number,
     occupation: String,
     education: String,
-    nominee: String
+    nominee: String,
+    subscribe: Boolean
 });
 const Form = mongoose.model("Form", formSchema);
 app.use(express.static(path.join(__dirname, "public")));
@@ -48,6 +48,9 @@ app.get("/", (req, res) => {
 
 app.post("/submit", async (req, res) => {
     try {
+        // Convert checkbox value to boolean
+        req.body.subscribe = req.body.subscribe === "on" ? true : false;
+        
         const newForm = new Form(req.body);
 
         await newForm.save();
@@ -56,8 +59,9 @@ app.post("/submit", async (req, res) => {
 
         res.redirect("/success.html");
     } catch (err) {
-        console.log(err);
-        res.send("Error Saving Data");
+        console.log("Form Submission Error:", err.message);
+        console.log("Full Error:", err);
+        res.status(400).send("Error Saving Data: " + err.message);
     }
 });
 
